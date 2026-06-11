@@ -1,0 +1,42 @@
+[
+  {
+    "plataforma": "SEACE REAL",
+    "entidad": "Gobierno Regional de Arequipa",
+    "objeto": "CONTRATACIÓN DEL SERVICIO DE MANTENIMIENTO DE LA RED DE TELECOMUNICACIONES",
+    "tipo": "Adjudicación Simplificada",
+    "monto": "S/. 120,000",
+    "region": "AREQUIPA"
+  },
+  {
+    "plataforma": "Órdenes < 8 UIT",
+    "entidad": "Municipalidad Provincial de Mariscal Nieto",
+    "objeto": "SERVICIO DE PINTADO Y ACONDICIONAMIENTO DE LOCAL INSTITUCIONAL",
+    "tipo": "Contratación Directa",
+    "monto": "S/. 28,400",
+    "region": "MOQUEGUA"
+  },
+  {
+    "plataforma": "Perú Compras",
+    "entidad": "Municipalidad Provincial de Tacna",
+    "objeto": "ADQUISICIÓN DE ESTRUCTURAS METÁLICAS Y TECHADO PARA ALMACENES INSTITUCIONALES",
+    "tipo": "Convenio Marco",
+    "monto": "S/. 45,600",
+    "region": "TACNA"
+  },
+  {
+    "plataforma": "SEACE REAL",
+    "entidad": "Gobierno Regional del Cusco",
+    "objeto": "SERVICIO GENERAL DE LIMPIEZA, CONSERJERÍA Y MANTENIMIENTO DE INFRAESTRUCTURA",
+    "tipo": "Adjudicación Simplificada",
+    "monto": "S/. 68,000",
+    "region": "CUSCO"
+  },
+  {
+    "plataforma": "Órdenes < 8 UIT",
+    "entidad": "Municipalidad Provincial de Puno",
+    "objeto": "SERVICIO DE MANTENIMIENTO, REPARACIÓN E INSTALACIÓN DE REDES E INFRAESTRUCTURA",
+    "tipo": "Contratación Directa",
+    "monto": "S/. 31,200",
+    "region": "PUNO"
+  }
+]
