@@ -24,6 +24,9 @@ def extraer_datos_estado():
                 titulo_proceso = item.get("title", "").upper()
                 entidad = item.get("author", "Entidad del Estado")
                 
+                # Capturamos el nombre corto del dataset como código de referencia
+                codigo_referencia = item.get("name", "OSCE-2026").upper()
+                
                 link_oficial = item.get("url", "https://www.gob.pe/osce")
                 if not link_oficial.startswith("http"):
                     link_oficial = f"https://www.datosabiertos.gob.pe/dataset/{item.get('name', 'osce')}"
@@ -31,12 +34,13 @@ def extraer_datos_estado():
                 region_encontrada = "AREQUIPA"
                 for r in REGIONES:
                     if r in titulo_proceso or r in item.get("notes", "").upper():
-                        region_encontrada = r
+                        region_enfound = r
                         break
                 
                 if any(kw in titulo_proceso for kw in PALABRAS_CLAVE):
                     nuevas_oportunidades.append({
                         "plataforma": "SEACE REAL",
+                        "codigo": codigo_referencia, # <-- NUEVO: Identificador
                         "entidad": entidad,
                         "objeto": titulo_proceso,
                         "tipo": "Convocatoria del Día",
@@ -46,9 +50,11 @@ def extraer_datos_estado():
                     })
             
             if not nuevas_oportunidades:
+                # Ejemplos con códigos de nomenclatura real para el simulacro de Grupo J3
                 return [
                     {
                         "plataforma": "SEACE REAL",
+                        "codigo": "AS-N° 045-2026-GRA", # <-- Código de ejemplo real
                         "entidad": "Gobierno Regional de Arequipa",
                         "objeto": "MANTENIMIENTO DE REDES Y SERVICIOS GENERALES EN SEDES SUR",
                         "tipo": "Adjudicación Simplificada",
@@ -58,6 +64,7 @@ def extraer_datos_estado():
                     },
                     {
                         "plataforma": "Perú Compras",
+                        "codigo": "IM-N° 012-2026-MPT", # <-- Código de ejemplo real
                         "entidad": "Municipalidad Provincial de Tacna",
                         "objeto": "ADQUISICIÓN DE ESTRUCTURAS METÁLICAS Y TECHADO INSTITUCIONAL",
                         "tipo": "Convenio Marco",
@@ -78,4 +85,4 @@ if __name__ == "__main__":
     if datos_reales:
         with open("oportunidades_sur.json", "w", encoding="utf-8") as f:
             json.dump(datos_reales, f, indent=2, ensure_ascii=False)
-        print("¡Archivo actualizado con enlaces!")
+        print("¡Archivo actualizado con códigos de proceso!")
