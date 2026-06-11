@@ -1,0 +1,32 @@
+name: Extractor Diario SEACE Real
+
+on:
+  schedule:
+    - cron: '0 11 * * *' # Se ejecuta automáticamente todos los días a las 6:00 AM (Hora Perú)
+  workflow_dispatch: # Permite activarlo manualmente si deseas probar
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copiar repositorio
+      uses: actions/checkout@v2
+      
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-python-version: '3.x'
+        
+    - name: Instalar librerías
+      run: pip install requests
+      
+    - name: Ejecutar Extractor de Datos Reales
+      run: python extractor.py
+      
+    - name: Guardar cambios en el JSON
+      run: |
+        git config --global user.name 'Robot Extractor Grupo J3'
+        git config --global user.email 'bot@grupoj3.com'
+        git add oportunidades_sur.json
+        git commit -m "Actualización automática SEACE real" || exit 0
+        git push
