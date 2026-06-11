@@ -24,7 +24,6 @@ def extraer_datos_estado():
                 titulo_proceso = item.get("title", "").upper()
                 entidad = item.get("author", "Entidad del Estado")
                 
-                # Intentamos capturar el link oficial del portal o creamos uno de búsqueda rápida
                 link_oficial = item.get("url", "https://www.gob.pe/osce")
                 if not link_oficial.startswith("http"):
                     link_oficial = f"https://www.datosabiertos.gob.pe/dataset/{item.get('name', 'osce')}"
@@ -38,16 +37,15 @@ def extraer_datos_estado():
                 if any(kw in titulo_proceso for kw in PALABRAS_CLAVE):
                     nuevas_oportunidades.append({
                         "plataforma": "SEACE REAL",
-                        "entidad": entity := entidad,
+                        "entidad": entidad,
                         "objeto": titulo_proceso,
                         "tipo": "Convocatoria del Día",
                         "monto": "Ver bases en enlace",
                         "region": region_encontrada,
-                        "link": link_oficial # <-- NUEVO: Guardamos el enlace directo
+                        "link": link_oficial
                     })
             
             if not nuevas_oportunidades:
-                # Si el estado no varía la data, dejamos ejemplos reales con links interactivos para la empresa
                 return [
                     {
                         "plataforma": "SEACE REAL",
