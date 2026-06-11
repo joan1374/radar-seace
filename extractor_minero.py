@@ -4,16 +4,15 @@ import os
 def extraer_licitaciones_mineras():
     print("Sincronizando canales de adquisición de la gran minería del Sur...")
     
-    # Base de datos interactiva alineada a las operaciones clave en el Sur
     portales_mineros = [
         {
-            "plataforma": "Portal de Compras Grupo México",
+            "plataforma": "Portal Oficial SCC",
             "entidad": "Southern Perú (Tía María / Cuajone / Toquepala)",
             "objeto": "CONVOCATORIAS PRIVADAS: ADQUISICIÓN DE EPP, SEÑALIZACIÓN Y SERVICIOS GENERALES LOGÍSTICOS",
             "tipo": "Licitaciones Privadas",
             "monto": "Según Cotización",
             "region": "AREQUIPA / MOQUEGUA / TACNA",
-            "link": "https://www.grupomexico.com/es/Pages/proveedores.aspx"
+            "link": "https://www.southerncoppercorp.com/" # <-- Enlace limpio anti-bloqueos
         },
         {
             "plataforma": "Mesa de Proveedores Freeport",
@@ -50,4 +49,4 @@ if __name__ == "__main__":
     if datos_minería:
         with open("oportunidades_mineras.json", "w", encoding="utf-8") as f:
             json.dump(datos_minería, f, indent=2, ensure_ascii=False)
-        print("¡Archivo oportunidades_mineras.json consolidado con éxito!")
+        print("¡Archivo de minería corregido con éxito!")
